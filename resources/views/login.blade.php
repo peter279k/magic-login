@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,7 +6,6 @@
     <meta name="description" content="It's just a Magic Login System">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Manual Generator">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="default-account" content="coscup2022">
     <meta name="default-password1" content="34250003024812">
     <meta name="default-password2" content="123456789012345678901234567890123456789012345678901234567890123456789012">
@@ -18,12 +16,7 @@
     <!-- Bootstrap core CSS -->
 <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Favicons -->
-<link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/manifest.json">
-<link rel="mask-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-<link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
+<link rel="icon" href="https://coscup.org/2020/images/banner-logo.svg" type="image/svg+xml">
 <meta name="theme-color" content="#7952b3">
 
 
@@ -50,23 +43,24 @@
   <body class="text-center">
     
 <main class="form-signin">
-  <form>
+  <form action="/login" method="post">
     <img class="mb-4" src="https://coscup.org/2020/images/banner-logo.svg" alt="" width="100" height="75">
-    <h1 class="h3 mb-3 fw-normal">Please login in</h1>
+    <h1 class="h3 mb-3 fw-normal">Please Sign in</h1>
     <p>請試著登入並拿到想要得到的Token :)</p>
     <p class="h6 mark">Please try to login and retrieve the token :)</p>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="text" class="form-control" id="user" name="user">
       <label for="floatingInput">Account User Name</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="password" name="password">
       <label for="floatingPassword">Password</label>
     </div>
 
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2017–{{ \date('Y') }}</p>
+    <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
   </form>
 </main>
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('login');
-//    return json_encode(['version' => '1.0']);
 });
+
+Route::post('/login', [User::class, 'checkUser']);
