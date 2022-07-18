@@ -4,18 +4,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="It's just a Magic Login System">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.84.0">
+    <meta name="generator" content="Manual Generator">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="default-account" content="coscup2022">
+    <meta name="default-password1" content="34250003024812">
+    <meta name="default-password2" content="123456789012345678901234567890123456789012345678901234567890123456789012">
     <title>Magic Login System</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
-
     
-
     <!-- Bootstrap core CSS -->
 <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
     <!-- Favicons -->
 <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -52,6 +53,8 @@
   <form>
     <img class="mb-4" src="https://coscup.org/2020/images/banner-logo.svg" alt="" width="100" height="75">
     <h1 class="h3 mb-3 fw-normal">Please login in</h1>
+    <p>請試著登入並拿到想要得到的Token :)</p>
+    <p class="h6 mark">Please try to login and retrieve the token :)</p>
 
     <div class="form-floating">
       <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
