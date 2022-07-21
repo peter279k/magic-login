@@ -42,32 +42,34 @@ class User extends Controller
         $defaultSha256HashedPassword = \hash($shaAlg, $defaultSha256Password);
         if ($hashedPassword == $defaultSha256HashedPassword) {
             $token = strval(Uuid::uuid4());
-            $res = \json_encode([
+            $res = [
                 'result' => 'Hooray! You may know about the magic SHA256 Hash!',
                 'result_tw' => '萬歲!你知道了 magic SHA256 Hash!',
                 'token' => $token,
-            ]);
+            ];
 
             DB::beginTransaction();
             DB::insert('INSERT INTO user(token, type) VALUES(?, ?)', [$token, $shaAlg]);
             DB::commit();
+            $res['id'] = DB::getPdo()->lastInsertId();
 
-            return $res;
+            return \json_encode($res);
         }
         $defaultBcryptHashedPassword = Hash::make($defaultBcryptPassword);
         if (Hash::check($password, $defaultBcryptHashedPassword) === true) {
             $token = strval(Uuid::uuid4());
-            $res = \json_encode([
+            $res = [
                 'result' => 'Hooray! You may know about the magic Bcrypt Hash!',
                 'result_tw' => '萬歲!你知道了 magic Bcrypt Hash!',
                 'token' => $token,
-            ]);
+            ];
 
             DB::beginTransaction();
             DB::insert('INSERT INTO user(token, type) VALUES(?, ?)', [$token, 'Bcrypt']);
             DB::commit();
+            $res['id'] = DB::getPdo()->lastInsertId();
 
-            return $res;
+            return \json_encode($res);
         }
 
         return json_encode([
