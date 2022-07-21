@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Ramsey\Uuid\Uuid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -41,7 +40,7 @@ class User extends Controller
         $hashedPassword = \hash($shaAlg, $password);
         $defaultSha256HashedPassword = \hash($shaAlg, $defaultSha256Password);
         if ($hashedPassword == $defaultSha256HashedPassword) {
-            $token = strval(Uuid::uuid4());
+            $token = \bin2hex(\random_bytes(5));
             $res = [
                 'result' => 'Hooray! You may know about the magic SHA256 Hash!',
                 'result_tw' => '萬歲!你知道了 magic SHA256 Hash!',
@@ -56,7 +55,7 @@ class User extends Controller
         }
         $defaultBcryptHashedPassword = Hash::make($defaultBcryptPassword);
         if (Hash::check($password, $defaultBcryptHashedPassword) === true) {
-            $token = strval(Uuid::uuid4());
+            $token = \bin2hex(\random_bytes(5));
             $res = [
                 'result' => 'Hooray! You may know about the magic Bcrypt Hash!',
                 'result_tw' => '萬歲!你知道了 magic Bcrypt Hash!',
