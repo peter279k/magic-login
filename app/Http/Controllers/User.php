@@ -51,7 +51,6 @@ class User extends Controller
             DB::beginTransaction();
             DB::table('user')->insert(['token' => $token, 'type' => $shaAlg]);
             DB::commit();
-            $res['id'] = DB::getPdo()->lastInsertId();
 
             return \json_encode($res);
         }
@@ -67,7 +66,6 @@ class User extends Controller
             DB::beginTransaction();
             DB::table('user')->insert(['token' => $token, 'type' => 'Bcrypt']);
             DB::commit();
-            $res['id'] = DB::getPdo()->lastInsertId();
 
             return \json_encode($res);
         }
