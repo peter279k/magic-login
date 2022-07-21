@@ -13,12 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user', function (Blueprint $table) {
-            $table->id();
-            $table->string('token');
-            $table->string('type');
-            $table->timestamp('created_at')->useCurrent();
-        });
+        //
     }
 
     /**
@@ -28,6 +23,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::drop('user');
+        //
     }
 };
