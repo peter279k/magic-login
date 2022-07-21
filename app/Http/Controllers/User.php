@@ -49,7 +49,7 @@ class User extends Controller
             ];
 
             DB::beginTransaction();
-            DB::insert('INSERT INTO user(token, type) VALUES(?, ?)', [$token, $shaAlg]);
+            DB::table('user')->insert(['token' => $token, 'type' => $shaAlg]);
             DB::commit();
             $res['id'] = DB::getPdo()->lastInsertId();
 
@@ -65,7 +65,7 @@ class User extends Controller
             ];
 
             DB::beginTransaction();
-            DB::insert('INSERT INTO user(token, type) VALUES(?, ?)', [$token, 'Bcrypt']);
+            DB::table('user')->insert(['token' => $token, 'type' => 'Bcrypt']);
             DB::commit();
             $res['id'] = DB::getPdo()->lastInsertId();
 
