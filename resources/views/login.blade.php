@@ -44,7 +44,7 @@
     
 <main class="form-signin">
   <form action="/login" method="post">
-    <img class="mb-4" src="https://coscup.org/2020/images/banner-logo.svg" alt="" width="100" height="75">
+    <img class="mb-4" src="https://coscup.org/2020/images/banner-logo.svg" alt="coscup-logo-banner" width="100" height="75">
     <h1 class="h3 mb-3 fw-normal">Please Sign in</h1>
     <p>請試著登入並拿到想要得到的Token :)</p>
     <p class="h6 mark">Please try to login and retrieve the token :)</p>
