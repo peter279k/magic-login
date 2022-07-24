@@ -22,7 +22,6 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">id</th>
       <th scope="col">token</th>
       <th scope="col">type</th>
       <th scope="col">created_at</th>
