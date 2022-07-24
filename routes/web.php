@@ -14,6 +14,10 @@ use App\Http\Controllers\User;
 |
 */
 
+Route::get('/dashboard', function() {
+    return views('token');
+});
+
 Route::get('/', function () {
     return view('login');
 });
