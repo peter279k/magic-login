@@ -15,7 +15,7 @@ use App\Http\Controllers\User;
 */
 
 Route::get('/dashboard', function() {
-    return views('token');
+    return view('token');
 });
 
 Route::get('/', function () {
