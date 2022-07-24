@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\User;
 
 /*
@@ -15,7 +16,9 @@ use App\Http\Controllers\User;
 */
 
 Route::get('/dashboard', function() {
-    return view('token');
+    $users = DB::select('SELECT * FROM user order by id');
+
+    return view('token', ['users' => $users]);
 });
 
 Route::get('/', function () {
