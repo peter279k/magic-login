@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\User;
 
 /*
@@ -13,6 +14,12 @@ use App\Http\Controllers\User;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/dashboard', function() {
+    $users = DB::select('SELECT * FROM user order by id');
+
+    return view('token', ['users' => $users]);
+});
 
 Route::get('/', function () {
     return view('login');
