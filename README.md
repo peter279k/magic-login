@@ -1,6 +1,6 @@
 ## About Magic Login System
 
-It's just a magic login system. Enjoy it!
+It's just a magic login system for the COSCUP 2022. Enjoy it!
 
 ## Manual Deployment
 
